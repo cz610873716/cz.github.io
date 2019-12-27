@@ -421,6 +421,29 @@
 
 
 
+  <div id="gitment-ctn"></div>
+  
+    <!-- 中文 -->
+    <link rel="stylesheet" href="/lib/gitment.css">
+    <script src="/lib/gitment.js"></script>
+  
+  <script>
+    <!-- id: "Hello World" -->
+    var gitment = new Gitment({
+      id: "20191226194758",
+      owner: 'tshycz',
+      repo: 'blog-comments',
+      oauth: {
+        client_id: '12c05597e48ceffd3076',
+        client_secret: 'd35888d01a3a3a973647eed4c2a288c82a651122',
+      },
+    })
+    gitment.render('gitment-ctn')
+  </script>
+
+
+
+
 
 
           </div>
@@ -667,6 +690,35 @@
   </div>
 
   
+<script type="text/javascript" src="/plugins/TweenMax/TweenMax.min.js"></script>
+<script type="text/javascript" src="/plugins/TweenMax/HoverImg.js"></script>
+
+<script>
+
+
+  var hoverEffect = {
+     "subNav": ".left-col .social a", 
+  }
+
+
+  for (var x in hoverEffect) {
+    // 初始化data-img属性值
+    let $em = document.querySelectorAll(hoverEffect[x]);
+    $em.forEach(($a) => {
+      //console.log($a.href);
+      if (isImageType($a.href)) {
+        $a.setAttribute("data-img", $a.href)
+      }
+    })
+    // 实现悬停元素预览图片效果
+    let $a = document.querySelectorAll(hoverEffect[x] + "[data-img]");
+    $a.forEach(($em) => {
+      new HoverImgFx1($em)
+    })
+  }
+
+</script>
+
   
 <script type="text/javascript" src="/plugins/activate-power-mode/activate-power-mode.js"></script>
 <script>
