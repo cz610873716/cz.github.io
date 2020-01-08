@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="移动端适配及手指滑动">
+  <meta name="description" content="移动端适配及手指滑动简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端随笔">
 <meta property="og:url" content="http://tshycz.xyz/2019/12/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Tshycz">
-<meta property="og:description" content="移动端适配及手指滑动">
+<meta property="og:description" content="移动端适配及手指滑动简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-27T06:23:50.000Z">
-<meta property="article:modified_time" content="2020-01-06T14:38:51.596Z">
+<meta property="article:modified_time" content="2020-01-08T12:29:13.288Z">
 <meta property="article:author" content="Tshycz">
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="js">
@@ -221,7 +221,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1k字</span>
+      <span class="post-count">1.1k字</span>
     </span>
   </span>
 
@@ -241,12 +241,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="移动端适配及手指滑动"><a href="#移动端适配及手指滑动" class="headerlink" title="移动端适配及手指滑动"></a>移动端适配及手指滑动</h1><a id="more"></a>
-<h2 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案"></a>适配方案</h2><pre><code>网页宽度必须和浏览器保持一致 
+    <h2 id="移动端适配及手指滑动"><a href="#移动端适配及手指滑动" class="headerlink" title="移动端适配及手指滑动"></a>移动端适配及手指滑动</h2><p>简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动</p>
+<a id="more"></a>
+<h3 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案"></a>适配方案</h3><pre><code>网页宽度必须和浏览器保持一致 
 默认显示的缩放比例和PC端报错（缩放比例1.0） 
-不允许用户自行缩放页面 </code></pre><h2 id="适配设置"><a href="#适配设置" class="headerlink" title="适配设置"></a>适配设置</h2><pre><code>如果任何设置都没有，默认走的就是viewport的默认设置 
+不允许用户自行缩放页面 </code></pre><h3 id="适配设置"><a href="#适配设置" class="headerlink" title="适配设置"></a>适配设置</h3><pre><code>如果任何设置都没有，默认走的就是viewport的默认设置 
 去设置新的viewport设置，达到适配要求 
-&lt;meta name=&quot;viewport&quot; /&gt; 设置视口的标签 在head里面并且应该紧接着编码设置 </code></pre><h2 id="viewport的功能："><a href="#viewport的功能：" class="headerlink" title="viewport的功能："></a>viewport的功能：</h2><pre><code>content中使用：
+&lt;meta name=&quot;viewport&quot; /&gt; 设置视口的标签 在head里面并且应该紧接着编码设置 </code></pre><h3 id="viewport的功能："><a href="#viewport的功能：" class="headerlink" title="viewport的功能："></a>viewport的功能：</h3><pre><code>content中使用：
 可以设置宽度    width:device-width  当前设备宽度
 可以设置高度    height  
 可视设置默认的缩放比例      initial-scale
@@ -254,13 +255,13 @@
 可以设置最大缩放比例     maximum-scale
 可以设置最小缩放比例     minimum-scale  </code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, user-scalable=0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="移动端触摸事件-touch"><a href="#移动端触摸事件-touch" class="headerlink" title="移动端触摸事件 touch"></a>移动端触摸事件 touch</h2><p><code>touchstart</code>      当手指触摸屏幕的时候就触发<br><code>touchmove</code>       当手指在屏幕中来回滑动的时候触发<br><code>touchend</code>        当手指离开屏幕的时候触发<br><code>touchcancel</code>     当被迫终止滑动的时候触发（如弹出消息、来电）</p>
-<h2 id="添加事件"><a href="#添加事件" class="headerlink" title="添加事件"></a>添加事件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="移动端触摸事件-touch"><a href="#移动端触摸事件-touch" class="headerlink" title="移动端触摸事件 touch"></a>移动端触摸事件 touch</h3><p><code>touchstart</code>      当手指触摸屏幕的时候就触发<br><code>touchmove</code>       当手指在屏幕中来回滑动的时候触发<br><code>touchend</code>        当手指离开屏幕的时候触发<br><code>touchcancel</code>     当被迫终止滑动的时候触发（如弹出消息、来电）</p>
+<h3 id="添加事件"><a href="#添加事件" class="headerlink" title="添加事件"></a>添加事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 
-<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><p><code>TouchList</code>    触摸点（一个手指触摸就是一个触发点，和屏幕的接触点的个数）的集合<br><code>changedTouches</code>      改变后的触摸点集合          每个事件都会记录<br><code>targetTouches</code>       当前元素的触发点集合        在离开屏幕的时候无法记录触摸点<br><code>touches</code>             页面上所有的触发点集合      在离开屏幕的时候无法记录触摸点</p>
-<h2 id="滑动实现的原理"><a href="#滑动实现的原理" class="headerlink" title="滑动实现的原理"></a>滑动实现的原理</h2><p>1.就是让触摸的元素随着手指的滑动做位置的改变<br>2.位置的改变，需要当前手指的坐标<br>3.在每一个触摸点中会记录当前触摸点的坐标 e.touches[0]第一个触摸点<br>触摸点坐标<br><code>clientX   clientY</code>   基于浏览器窗口（基于视口）<br><code>pageX     pageY</code>     基于页面（视口）<br><code>screenX   screenY</code>   基于屏幕（包括浏览工具栏等）</p>
-<h2 id="轻触事件-tap"><a href="#轻触事件-tap" class="headerlink" title="轻触事件 tap"></a>轻触事件 tap</h2><p><code>tap</code> 事件 轻触  响应快速<br>移动端也有click事件  但是移动端为了区分滑动还是点击，会在延迟后触发，看看你有没有滑动 （300ms）</p>
-<h2 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h2><p>css3中的 Media Query (媒体查询)<br>通过查询screen的宽度<br>超小屏幕  768px以下<br>小屏设备  768px-922px<br>中等屏幕  922px-1200px<br>宽屏设备  1200px以上</p>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p><code>TouchList</code>    触摸点（一个手指触摸就是一个触发点，和屏幕的接触点的个数）的集合<br><code>changedTouches</code>      改变后的触摸点集合          每个事件都会记录<br><code>targetTouches</code>       当前元素的触发点集合        在离开屏幕的时候无法记录触摸点<br><code>touches</code>             页面上所有的触发点集合      在离开屏幕的时候无法记录触摸点</p>
+<h3 id="滑动实现的原理"><a href="#滑动实现的原理" class="headerlink" title="滑动实现的原理"></a>滑动实现的原理</h3><p>1.就是让触摸的元素随着手指的滑动做位置的改变<br>2.位置的改变，需要当前手指的坐标<br>3.在每一个触摸点中会记录当前触摸点的坐标 e.touches[0]第一个触摸点<br>触摸点坐标<br><code>clientX   clientY</code>   基于浏览器窗口（基于视口）<br><code>pageX     pageY</code>     基于页面（视口）<br><code>screenX   screenY</code>   基于屏幕（包括浏览工具栏等）</p>
+<h3 id="轻触事件-tap"><a href="#轻触事件-tap" class="headerlink" title="轻触事件 tap"></a>轻触事件 tap</h3><p><code>tap</code> 事件 轻触  响应快速<br>移动端也有click事件  但是移动端为了区分滑动还是点击，会在延迟后触发，看看你有没有滑动 （300ms）</p>
+<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p>css3中的 Media Query (媒体查询)<br>通过查询screen的宽度<br>超小屏幕  768px以下<br>小屏设备  768px-922px<br>中等屏幕  922px-1200px<br>宽屏设备  1200px以上</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">1200px</span>) &#123;&#125; </span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">992px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1200px</span>) &#123;&#125; </span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">992px</span>) &#123;&#125; </span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">768px</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>下面我自己封装了一个侧边栏的划动</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移动端侧边栏滑动</span></span><br><span class="line"><span class="comment">// 这里我设置了两个参数 ：一个是需要划动的元素、 一个是划动元素的父元素</span></span><br><span class="line"><span class="comment">// 通过设置子元素在父元素中的 position:absolute top定位来实现划动</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mainNavMove</span>(<span class="params">ele,farele</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 父元素</span></span><br><span class="line">    <span class="keyword">var</span> farele = <span class="built_in">document</span>.getElementsByClassName(farele)[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">// 父元素高度 为了在后面求出 父元素和子元素的高度差 来设置最大划动距离</span></span><br><span class="line">    <span class="keyword">var</span> fareleHeight = farele.offsetHeight;</span><br><span class="line">	<span class="comment">// 子元素</span></span><br><span class="line">    <span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementsByClassName(ele)[<span class="number">0</span>];</span><br><span class="line">   	<span class="comment">// 子元素高度</span></span><br><span class="line">    <span class="keyword">var</span> eleHeight = ele.offsetHeight;</span><br><span class="line">    <span class="comment">// 父元素和子元素的高度差</span></span><br><span class="line">    <span class="keyword">var</span> disH = eleHeight - fareleHeight;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// startY 获取初始手指坐标  disY划动距离  top是用来记录每次移动之后的top定位值，在下次划动的时候会在top值的基础上进行定位</span></span><br><span class="line">    <span class="keyword">var</span> startY = <span class="number">0</span>,</span><br><span class="line">        disY = <span class="number">0</span>,</span><br><span class="line">        top = <span class="number">0</span>;</span><br><span class="line">    ele.style.top = <span class="number">0</span>;</span><br><span class="line">    ele.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">// 获取起始坐标</span></span><br><span class="line">        startY = e.touches[<span class="number">0</span>].clientY;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    ele.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">// 移动过程中的坐标</span></span><br><span class="line">        <span class="keyword">var</span> moveY = e.touches[<span class="number">0</span>].clientY;</span><br><span class="line">        <span class="comment">// 划动定位</span></span><br><span class="line">        disY = top + (moveY - startY);</span><br><span class="line">        ele.style.top = disY + <span class="string">'px'</span>;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    ele.addEventListener(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">// 重置参数</span></span><br><span class="line">        disY = <span class="number">0</span>;</span><br><span class="line">        startY = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 记录top值</span></span><br><span class="line">        top = <span class="built_in">parseInt</span>(ele.style.top);</span><br><span class="line">        <span class="comment">// 当top值大于0时，子元素上方出现空白，小于disH（子元素与父元素高度差），下方出现空白</span></span><br><span class="line">        <span class="keyword">if</span> (top &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            top = <span class="number">0</span>;</span><br><span class="line">            ele.style.top = <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (top &lt; -disH) &#123;</span><br><span class="line">            top = -disH;</span><br><span class="line">            ele.style.top = -disH + <span class="string">'px'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -333,11 +334,6 @@
 
   </div>
   <div class="article-info article-info-index">
-    
-    <div class="article-pop-out tagcloud">
-      <i class="icon-tuding"></i>
-      <a class="article-tag-list-link color3">置顶</a>
-    </div>
     
     
 	<div class="article-tag tagcloud">
@@ -453,7 +449,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#移动端适配及手指滑动"><span class="toc-number">1.</span> <span class="toc-text">移动端适配及手指滑动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#适配方案"><span class="toc-number">1.1.</span> <span class="toc-text">适配方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#适配设置"><span class="toc-number">1.2.</span> <span class="toc-text">适配设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#viewport的功能："><span class="toc-number">1.3.</span> <span class="toc-text">viewport的功能：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端触摸事件-touch"><span class="toc-number">1.4.</span> <span class="toc-text">移动端触摸事件 touch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加事件"><span class="toc-number">1.5.</span> <span class="toc-text">添加事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件对象"><span class="toc-number">1.6.</span> <span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#滑动实现的原理"><span class="toc-number">1.7.</span> <span class="toc-text">滑动实现的原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轻触事件-tap"><span class="toc-number">1.8.</span> <span class="toc-text">轻触事件 tap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式"><span class="toc-number">1.9.</span> <span class="toc-text">响应式</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端适配及手指滑动"><span class="toc-number">1.</span> <span class="toc-text">移动端适配及手指滑动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#适配方案"><span class="toc-number">1.1.</span> <span class="toc-text">适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配设置"><span class="toc-number">1.2.</span> <span class="toc-text">适配设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#viewport的功能："><span class="toc-number">1.3.</span> <span class="toc-text">viewport的功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端触摸事件-touch"><span class="toc-number">1.4.</span> <span class="toc-text">移动端触摸事件 touch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加事件"><span class="toc-number">1.5.</span> <span class="toc-text">添加事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件对象"><span class="toc-number">1.6.</span> <span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#滑动实现的原理"><span class="toc-number">1.7.</span> <span class="toc-text">滑动实现的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#轻触事件-tap"><span class="toc-number">1.8.</span> <span class="toc-text">轻触事件 tap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式"><span class="toc-number">1.9.</span> <span class="toc-text">响应式</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -478,10 +474,6 @@
 
 <!-- 置顶 -->
 
-    <i class="fa fa-thumb-tack"></i>
-    <font color=7D26CD>置顶</font>
-    <span class="post-meta-divider">|</span>
-  
           </div>
         </div>
       </div>
@@ -607,6 +599,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cmd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">

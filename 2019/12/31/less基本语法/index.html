@@ -18,7 +18,7 @@
 <meta property="og:description" content="less 基本语法Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-31T06:13:26.000Z">
-<meta property="article:modified_time" content="2020-01-06T14:38:48.071Z">
+<meta property="article:modified_time" content="2020-01-08T12:13:07.096Z">
 <meta property="article:author" content="Tshycz">
 <meta property="article:tag" content="css">
 <meta property="article:tag" content="less">
@@ -241,7 +241,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="less-基本语法"><a href="#less-基本语法" class="headerlink" title="less 基本语法"></a>less 基本语法</h1><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
+    <h2 id="less-基本语法"><a href="#less-基本语法" class="headerlink" title="less 基本语法"></a>less 基本语法</h2><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
 <a id="more"></a>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@charset</span> <span class="string">"UTF-8"</span>;</span><br><span class="line">// css 中不支持，不会编译在css中</span><br><span class="line"><span class="comment">/* css中可使用 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 变量 */</span></span><br><span class="line"><span class="comment">/* 必须@前缀，是等于的意思，必须分号结束*/</span></span><br><span class="line"><span class="comment">/* 不能以数字开头，不能包含特殊字符,区分大小写 */</span></span><br><span class="line">@myColor: #f40;</span><br><span class="line">@classname: box;</span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: @myColor;</span><br><span class="line">&#125;</span><br><span class="line">.@&#123;classname&#125;&#123;      // 当使用变量跟其他字符拼接时 加&#123;&#125;  </span><br><span class="line">    <span class="selector-tag">color</span>: <span class="keyword">@myColor</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Mixin 混入 类似函数*/</span></span><br><span class="line"><span class="comment">/* 混入样式例子 */</span></span><br><span class="line"><span class="selector-class">.fl</span>&#123;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.width50</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 类混入 */</span></span><br><span class="line"><span class="selector-class">.fl-width50</span>&#123;    <span class="comment">/* 可以组合样式 */</span> <span class="comment">/* 但是例子中不需要的也会编译成css */</span></span><br><span class="line">    .fl();</span><br><span class="line">    <span class="selector-class">.width50</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 函数混入*/</span>   <span class="comment">/* 函数类声明和类声明不能一起出现 */</span></span><br><span class="line"><span class="selector-class">.fr</span>()&#123;        </span><br><span class="line">    <span class="attribute">float</span>: right;</span><br><span class="line">&#125;  </span><br><span class="line"><span class="selector-class">.m50</span>()&#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 目标类*/</span></span><br><span class="line"><span class="selector-class">.fl-m50</span>&#123;</span><br><span class="line">    .fr(); </span><br><span class="line">    <span class="selector-class">.m50</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 传参 */</span></span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">    1.定义了参数（没有默认值），调用的时候必须传参 </span></span><br><span class="line"><span class="comment">    2.定义默认值 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="selector-class">.posi</span>(<span class="keyword">@loca</span>)&#123;</span><br><span class="line">    <span class="selector-tag">position</span>: <span class="keyword">@loca</span>;</span><br><span class="line">&#125;</span><br><span class="line">.mr(@distance:50px)&#123;     /* :定义默认值 可传参可不传*/</span><br><span class="line">    <span class="selector-tag">margin-right</span>: <span class="keyword">@distance</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.positionab</span>&#123;</span><br><span class="line">    .posi(absolute);</span><br><span class="line">    <span class="selector-class">.mr</span>(60<span class="selector-tag">px</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 嵌套 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">    div&#123;</span><br><span class="line">        <span class="selector-tag">background-color</span>: <span class="selector-tag">red</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;<span class="selector-pseudo">:hover</span> <span class="selector-tag">div</span>&#123;   <span class="comment">/* 需要连接的情况 &amp; */</span></span><br><span class="line">        <span class="attribute">background-color</span>: blue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* import 导入 */</span></span><br><span class="line">// @import "test.less";</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 函数 */</span>  </span><br><span class="line"><span class="comment">/* 内置函数 */</span>  </span><br><span class="line"><span class="comment">/* 运算 */</span>     <span class="comment">/* 类似javaScript 运算符运算 */</span></span><br></pre></td></tr></table></figure>
 
@@ -392,6 +392,15 @@
 
 <nav id="article-nav">
   
+    <a href="/2020/01/08/nodejs%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          nodejs 随笔
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/12/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">移动端随笔</div>
@@ -421,7 +430,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#less-基本语法"><span class="toc-number">1.</span> <span class="toc-text">less 基本语法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#less-基本语法"><span class="toc-number">1.</span> <span class="toc-text">less 基本语法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -571,6 +580,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">cmd</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
