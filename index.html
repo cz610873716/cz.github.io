@@ -215,6 +215,11 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="Javascript-的异步执行模式"><a href="#Javascript-的异步执行模式" class="headerlink" title="Javascript 的异步执行模式"></a>Javascript 的异步执行模式</h2><p>简述：javascript 的执行模式分为 同步 、 异步 两种，下面我来说说得到函数异步操作的结果</p>
+<ul>
+<li><p>首先</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">    &#125;,<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>  这里是一个简单函数调用，输出结果为 ==(1,3,2)== ,当我们执行 <strong>setTimeout</strong> 定时器这个异步API时，不会等待执行完后在执行下面的代码，而是先执行下面的代码,不论有没有给定时器时间</p>
+<p>  <img src="/2020/01/16/javascript%E5%BC%82%E6%AD%A5%E6%A8%A1%E5%BC%8F/t1.png" alt="结果"></p></li></ul>
     
     
     
@@ -301,6 +306,15 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="node模块系统及Express框架"><a href="#node模块系统及Express框架" class="headerlink" title="node模块系统及Express框架"></a>node模块系统及Express框架</h2><p>简述：node开发中，使用载入模块来使用api，下面我记录了常用的模块，及创建简单的服务器。原生语法中的路由需要if进行判断，而express框架中则直接填入路由，介绍了一些express的简单用法。</p>
+<h3 id="fs-file-system-文件系统"><a href="#fs-file-system-文件系统" class="headerlink" title="fs(file-system) 文件系统"></a>fs(file-system) 文件系统</h3><ul>
+<li>node 中想要进行文件操作，必须引入fs核心模块</li>
+<li>使用 require 方向加载fs核心模块<blockquote>
+<p>var fs = require(‘fs’);<br>  第二个参数是可选的，传入utf8 就是把读取到的文件按utf8编码转换<br>  data.toString() 也可以<br>  fs.readFile(“”,’utf8’ function (err,data) {})  </p>
+</blockquote>
+</li>
+<li>读取文件 <ul>
+<li>第一个参数是文件路径（字符串） </li>
+<li>第二个参数是回调函数<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error   如果读取失败，error 就是错误对象     </span><br><span class="line">        如果读取成功，error 就是null</span><br><span class="line">data    如果读取成功，data 就是读取到的数据</span><br><span class="line">        如果读取失败，data就是错误对象</span><br><span class="line">fs.writeFile('路径及文件名','内容',function(error)&#123;&#125;)</span><br></pre></td></tr></table></figure></li></ul></li></ul>
     
     
     
@@ -317,11 +331,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		
 		</ul>
@@ -391,6 +405,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="cmd常用命令-npm常用命令-nodejs-require和exports"><a href="#cmd常用命令-npm常用命令-nodejs-require和exports" class="headerlink" title="cmd常用命令 npm常用命令 nodejs(require和exports)"></a>cmd常用命令 npm常用命令 nodejs(require和exports)</h2><p>简述：列举 <strong>cmd</strong> 基础常用的命令，<strong>npm</strong> 基本使用命令，及 <strong>nodejs</strong> 中 <strong>require加载</strong> 和 <strong>exports输出</strong> 的基本原理</p>
+<h3 id="1-cmd常用命令"><a href="#1-cmd常用命令" class="headerlink" title="1.cmd常用命令"></a>1.cmd常用命令</h3><p><code>cd ..</code>           返回上一级<br><code>md test</code>         新建test文件夹<br><code>md d:\test\my</code>   d盘下新建文件夹<br><code>cd test</code>         进入test文件夹<br><code>cd.&gt;cc.txt</code>      新建cc.txt文件<br><code>dir</code>             列出文件夹下所有文件及文件夹</p>
+<p><code>cd test</code>         进入test文件夹<br><code>dir</code>             查看所有文件目录<br><code>del a.txt</code>       删除a.txt的文件<br><code>del *.txt</code>       删除所有后缀为.txt的文件<br><code>rd test</code>         删除名为test的空文件夹<br><code>rd /s D:\test</code>   删除D盘里的test文件夹  会出现如下 test, 是否确认(Y/N)?  直接输入 Y 在回车<br><code>rd test/s</code>       删除此文件夹下的所有文件  test, 是否确认(Y/N)?  直接输入 Y 在回车</p>
     
     
     
@@ -575,6 +591,11 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h2 id="移动端适配及手指滑动"><a href="#移动端适配及手指滑动" class="headerlink" title="移动端适配及手指滑动"></a>移动端适配及手指滑动</h2><p>简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动</p>
+<h3 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案"></a>适配方案</h3><pre><code>网页宽度必须和浏览器保持一致 
+默认显示的缩放比例和PC端报错（缩放比例1.0） 
+不允许用户自行缩放页面 </code></pre><h3 id="适配设置"><a href="#适配设置" class="headerlink" title="适配设置"></a>适配设置</h3><pre><code>如果任何设置都没有，默认走的就是viewport的默认设置 
+去设置新的viewport设置，达到适配要求 
+&lt;meta name=&quot;viewport&quot; /&gt; 设置视口的标签 在head里面并且应该紧接着编码设置 </code></pre>
     
     
     
@@ -758,7 +779,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,15 +803,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">less</a>
               </li>
             
             <div class="clearfix"></div>
