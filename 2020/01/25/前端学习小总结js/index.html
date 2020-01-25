@@ -6,23 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://tshycz.xyz">
-  <title>移动端随笔 | Tshycz</title>
+  <title>前端学习小总结js | Tshycz</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="移动端适配及手指滑动简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动 适配方案网页宽度必须和浏览器保持一致  默认显示的缩放比例和PC端报错（缩放比例1.0）  不允许用户自行缩放页面 适配设置如果任何设置都没有，默认走的就是viewport的默认设置  去设置新的viewport设置，达到适配要求  &lt;meta name&#x3D;&quot;viewport&quot; &#x2F;&gt; 设置视口">
+  <meta name="description" content="前端学习 javascript 篇 学习过 HTML 和 CSS 之后，接着学习了 Javascript ,由于是第一次接触这类语言，我一套视频看了两遍，个人比较喜欢在学习时先了解个大概，有了印象，再深入，使用的时候也能回想起。第一遍学习的时候，没太懂，就粗粗的记下笔记，当第二遍学习时，边学习边练习才懂了个大概。  这里我把 Javascript 分为两部分，第一部分是 Ecmascript，就是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动端随笔">
-<meta property="og:url" content="http://tshycz.xyz/2019/12/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F/index.html">
+<meta property="og:title" content="前端学习小总结js">
+<meta property="og:url" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/index.html">
 <meta property="og:site_name" content="Tshycz">
-<meta property="og:description" content="移动端适配及手指滑动简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动 适配方案网页宽度必须和浏览器保持一致  默认显示的缩放比例和PC端报错（缩放比例1.0）  不允许用户自行缩放页面 适配设置如果任何设置都没有，默认走的就是viewport的默认设置  去设置新的viewport设置，达到适配要求  &lt;meta name&#x3D;&quot;viewport&quot; &#x2F;&gt; 设置视口">
+<meta property="og:description" content="前端学习 javascript 篇 学习过 HTML 和 CSS 之后，接着学习了 Javascript ,由于是第一次接触这类语言，我一套视频看了两遍，个人比较喜欢在学习时先了解个大概，有了印象，再深入，使用的时候也能回想起。第一遍学习的时候，没太懂，就粗粗的记下笔记，当第二遍学习时，边学习边练习才懂了个大概。  这里我把 Javascript 分为两部分，第一部分是 Ecmascript，就是">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-12-27T06:23:50.000Z">
-<meta property="article:modified_time" content="2020-01-18T07:31:15.609Z">
+<meta property="og:image" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/1.png">
+<meta property="og:image" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/2.png">
+<meta property="og:image" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/3.png">
+<meta property="og:image" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/4.png">
+<meta property="og:image" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/5.png">
+<meta property="article:published_time" content="2020-01-25T05:13:39.000Z">
+<meta property="article:modified_time" content="2020-01-25T11:54:21.764Z">
 <meta property="article:author" content="Tshycz">
-<meta property="article:tag" content="css">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="jacascript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/1.png">
   
     <link rel="alternative" href="/atom.xmll," title="Tshycz" type="application/atom+xml">
   
@@ -184,14 +189,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-移动端响应式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-前端学习小总结js" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      移动端随笔
+      前端学习小总结js
     </h1>
   
 
@@ -203,8 +208,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/12/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F/" class="archive-article-date">
-        <time datetime="2019-12-27T06:23:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-27</time>
+<a href="/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/" class="archive-article-date">
+        <time datetime="2020-01-25T05:13:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-25</time>
 </a>
 
   
@@ -217,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.1k字</span>
+      <span class="post-count">1.2k字</span>
     </span>
   </span>
 
@@ -237,37 +242,78 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="移动端适配及手指滑动"><a href="#移动端适配及手指滑动" class="headerlink" title="移动端适配及手指滑动"></a>移动端适配及手指滑动</h2><p>简述：移动端适配原理，及自己封装的移动端侧边导航栏滑动</p>
-<h3 id="适配方案"><a href="#适配方案" class="headerlink" title="适配方案"></a>适配方案</h3><pre><code>网页宽度必须和浏览器保持一致 
-默认显示的缩放比例和PC端报错（缩放比例1.0） 
-不允许用户自行缩放页面 </code></pre><h3 id="适配设置"><a href="#适配设置" class="headerlink" title="适配设置"></a>适配设置</h3><pre><code>如果任何设置都没有，默认走的就是viewport的默认设置 
-去设置新的viewport设置，达到适配要求 
-&lt;meta name=&quot;viewport&quot; /&gt; 设置视口的标签 在head里面并且应该紧接着编码设置 </code></pre><a id="more"></a>     
-<h3 id="viewport的功能："><a href="#viewport的功能：" class="headerlink" title="viewport的功能："></a>viewport的功能：</h3><pre><code>content中使用：
-可以设置宽度    width:device-width  当前设备宽度
-可以设置高度    height  
-可视设置默认的缩放比例      initial-scale
-可以设置是否允许用户自行缩放        user-scalable （yes、no  1、0）
-可以设置最大缩放比例     maximum-scale
-可以设置最小缩放比例     minimum-scale  </code></pre><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, user-scalable=0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="移动端触摸事件-touch"><a href="#移动端触摸事件-touch" class="headerlink" title="移动端触摸事件 touch"></a>移动端触摸事件 touch</h3><p><code>touchstart</code>      当手指触摸屏幕的时候就触发<br><code>touchmove</code>       当手指在屏幕中来回滑动的时候触发<br><code>touchend</code>        当手指离开屏幕的时候触发<br><code>touchcancel</code>     当被迫终止滑动的时候触发（如弹出消息、来电）</p>
-<h3 id="添加事件"><a href="#添加事件" class="headerlink" title="添加事件"></a>添加事件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.addEventListener(<span class="string">"touchstart"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p><code>TouchList</code>    触摸点（一个手指触摸就是一个触发点，和屏幕的接触点的个数）的集合<br><code>changedTouches</code>      改变后的触摸点集合          每个事件都会记录<br><code>targetTouches</code>       当前元素的触发点集合        在离开屏幕的时候无法记录触摸点<br><code>touches</code>             页面上所有的触发点集合      在离开屏幕的时候无法记录触摸点</p>
-<h3 id="滑动实现的原理"><a href="#滑动实现的原理" class="headerlink" title="滑动实现的原理"></a>滑动实现的原理</h3><p>1.就是让触摸的元素随着手指的滑动做位置的改变<br>2.位置的改变，需要当前手指的坐标<br>3.在每一个触摸点中会记录当前触摸点的坐标 e.touches[0]第一个触摸点<br>触摸点坐标<br><code>clientX   clientY</code>   基于浏览器窗口（基于视口）<br><code>pageX     pageY</code>     基于页面（视口）<br><code>screenX   screenY</code>   基于屏幕（包括浏览工具栏等）</p>
-<h3 id="轻触事件-tap"><a href="#轻触事件-tap" class="headerlink" title="轻触事件 tap"></a>轻触事件 tap</h3><p><code>tap</code> 事件 轻触  响应快速<br>移动端也有click事件  但是移动端为了区分滑动还是点击，会在延迟后触发，看看你有没有滑动 （300ms）</p>
-<h3 id="响应式"><a href="#响应式" class="headerlink" title="响应式"></a>响应式</h3><p>css3中的 Media Query (媒体查询)<br>通过查询screen的宽度<br>超小屏幕  768px以下<br>小屏设备  768px-922px<br>中等屏幕  922px-1200px<br>宽屏设备  1200px以上</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">1200px</span>) &#123;&#125; </span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">992px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">1200px</span>) &#123;&#125; </span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width:</span> <span class="number">768px</span>) <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">992px</span>) &#123;&#125; </span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width:</span> <span class="number">768px</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
-<p>下面我自己封装了一个侧边栏的划动</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移动端侧边栏滑动</span></span><br><span class="line"><span class="comment">// 这里我设置了两个参数 ：一个是需要划动的元素、 一个是划动元素的父元素</span></span><br><span class="line"><span class="comment">// 通过设置子元素在父元素中的 position:absolute top定位来实现划动</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mainNavMove</span>(<span class="params">ele,farele</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 父元素</span></span><br><span class="line">    <span class="keyword">var</span> farele = <span class="built_in">document</span>.getElementsByClassName(farele)[<span class="number">0</span>];</span><br><span class="line">    <span class="comment">// 父元素高度 为了在后面求出 父元素和子元素的高度差 来设置最大划动距离</span></span><br><span class="line">    <span class="keyword">var</span> fareleHeight = farele.offsetHeight;</span><br><span class="line">	<span class="comment">// 子元素</span></span><br><span class="line">    <span class="keyword">var</span> ele = <span class="built_in">document</span>.getElementsByClassName(ele)[<span class="number">0</span>];</span><br><span class="line">   	<span class="comment">// 子元素高度</span></span><br><span class="line">    <span class="keyword">var</span> eleHeight = ele.offsetHeight;</span><br><span class="line">    <span class="comment">// 父元素和子元素的高度差</span></span><br><span class="line">    <span class="keyword">var</span> disH = eleHeight - fareleHeight;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// startY 获取初始手指坐标  disY划动距离  top是用来记录每次移动之后的top定位值，在下次划动的时候会在top值的基础上进行定位</span></span><br><span class="line">    <span class="keyword">var</span> startY = <span class="number">0</span>,</span><br><span class="line">        disY = <span class="number">0</span>,</span><br><span class="line">        top = <span class="number">0</span>;</span><br><span class="line">    ele.style.top = <span class="number">0</span>;</span><br><span class="line">    ele.addEventListener(<span class="string">'touchstart'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">// 获取起始坐标</span></span><br><span class="line">        startY = e.touches[<span class="number">0</span>].clientY;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    ele.addEventListener(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">// 移动过程中的坐标</span></span><br><span class="line">        <span class="keyword">var</span> moveY = e.touches[<span class="number">0</span>].clientY;</span><br><span class="line">        <span class="comment">// 划动定位</span></span><br><span class="line">        disY = top + (moveY - startY);</span><br><span class="line">        ele.style.top = disY + <span class="string">'px'</span>;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">    ele.addEventListener(<span class="string">'touchend'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    	<span class="comment">// 重置参数</span></span><br><span class="line">        disY = <span class="number">0</span>;</span><br><span class="line">        startY = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 记录top值</span></span><br><span class="line">        top = <span class="built_in">parseInt</span>(ele.style.top);</span><br><span class="line">        <span class="comment">// 当top值大于0时，子元素上方出现空白，小于disH（子元素与父元素高度差），下方出现空白</span></span><br><span class="line">        <span class="keyword">if</span> (top &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            top = <span class="number">0</span>;</span><br><span class="line">            ele.style.top = <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (top &lt; -disH) &#123;</span><br><span class="line">            top = -disH;</span><br><span class="line">            ele.style.top = -disH + <span class="string">'px'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="literal">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+    <h2 id="前端学习-javascript-篇"><a href="#前端学习-javascript-篇" class="headerlink" title="前端学习 javascript 篇"></a>前端学习 javascript 篇</h2><ul>
+<li><p>学习过 HTML 和 CSS 之后，接着学习了 Javascript ,由于是第一次接触这类语言，我一套视频看了两遍，个人比较喜欢在学习时先了解个大概，有了印象，再深入，使用的时候也能回想起。第一遍学习的时候，没太懂，就粗粗的记下笔记，当第二遍学习时，边学习边练习才懂了个大概。</p>
+</li>
+<li><p>这里我把 Javascript 分为两部分，第一部分是 Ecmascript，就是原生自带的一些 API，另一部分为 DOM，也就是控制 HTML 元素的部分。</p>
+<ul>
+<li><p>Ecmascript 部分先来说说数据类型</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">栈(原始值) number(数字) string(字符) null undefined boolean(true/false) </span><br><span class="line">堆(引用值) Array(数组) Object(对象) Function(函数) ...</span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
+<li><p>原始值和引用值的区别</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'libai'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = obj</span><br><span class="line">obj1.name = <span class="string">'dufu'</span></span><br></pre></td></tr></table></figure>
+<p>  <img src="/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/1.png" alt="图"></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'libai'</span></span><br><span class="line"><span class="keyword">var</span> str1 = str</span><br><span class="line">str = <span class="string">'dufu'</span></span><br></pre></td></tr></table></figure>
+<p>  <img src="/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/2.png" alt="图"><br>  原始值值改变就是改变了，而引用值指向的可以看做一个地址，当两个值同时指向一个地址时，<strong>里面的数据改变(而不是地址改变)</strong>，都会跟着改变</p>
+</li>
+<li><p>javascript 里的运算符<br>  这个没有什么特别的，只需注意几点</p>
+<ul>
+<li><strong>NaN</strong>，非数，Not a Number,如果无法运算时会出现,<code>isNaN()</code>方法来判断</li>
+<li><strong>=</strong>赋值，赋值的顺序自右向左，计算的顺序自左向右。先计算后赋值 </li>
+<li><strong>+</strong>，数字中是运算，字符则是拼接在一起</li>
+<li>优先级，<strong>=</strong> 等号最低，<strong>()</strong> 括号最高</li>
+<li><strong>==</strong> 比较运算符，返回 boolean  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NaN</span> 不等于任何东西，包括本身</span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">null</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+  <strong><em>===</em></strong> 比较必须完全等于</li>
+<li>比较运算符<br>  <strong>undefined、null、NaN、””、0、false ==&gt; false</strong><br>  当使用 if 时，如果判断的里面为这些值，则判定为 false</li>
+</ul>
+</li>
+<li><p>toString() 方法<br>  这个方法可以转换为字符，但是在转换数字时会有个问题<br>  <img src="/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/3.png" alt="图"><br>  当数字类型使用这个方法时，使用一个点，则会看成 <code>1314.0toString()</code>,这样就会报错，可以使用两个点或 <code>1314.0.toString()</code></p>
+</li>
+<li><p>声明变量时需要注意</p>
+<ul>
+<li>var 声明的变量会提升到代码最前端，赋值为 <strong>undefined</strong>，不能被 delete</li>
+<li>未声明的变量，也就是没有 var 的变量，属于 window，全局变量，可以被 delete</li>
+</ul>
+</li>
+<li><p>当执行代码的前一个，会进行一个预编译环节</p>
+<ol>
+<li><p>创建AO对象   Activation Object （作用域 执行期上下文）</p>
+</li>
+<li><p>找形参和变量声明，将变量和形参名作为AO属性名，值为undefined  </p>
+</li>
+<li><p>将实参值和形参统一</p>
+</li>
+<li><p>在函数体里找函数声明，值赋予函数体</p>
+</li>
+</ol>
+</li>
+<li><p>闭包<br>  内部变量被保存到了外部，无法释放，最常见的例子</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;,<span class="number">1000</span> * i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  <img src="/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/4.png" alt="图"><br>  每隔一秒生成一个 10,最后定时器去获得的是 for 循环执行完后 <code>i = 10</code> 不满足循环条件的值</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>) </span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        &#125;, <span class="number">1000</span> * i)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  使用立即执行函数就可以解决闭包问题<br>  <img src="/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/5.png" alt="图"></p>
+</li>
+<li><p>构造函数可以用来构造对象，当我们想继承一个构造函数的原型时，继承后不能影响原来的,这里可以封装一个方法</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inherit</span> (<span class="params">Target, Origin</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Fn</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    Fn.prototype = Origin.prototype</span><br><span class="line">    Target.prototype = <span class="keyword">new</span> Fn()</span><br><span class="line">    Target.prototype.constuctor = Origin</span><br><span class="line">    Target.prototype.uber = Origin.prototype</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  通过一个中间函数 Fn 来断开影响</p>
+</li>
+<li><p>当我们克隆对象时，需要进行深度克隆，也就是克隆之后，如果对象中有数值或对象时，拷贝之后互不影响</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepclone</span> (<span class="params">origin, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target = target || &#123;&#125;</span><br><span class="line">    <span class="comment">// 这个toString方法是对象上的，用来深层区分函数、对象、数值等类型</span></span><br><span class="line">    <span class="keyword">var</span> objStr = <span class="built_in">Object</span>.prototype.toString()</span><br><span class="line">    <span class="keyword">var</span> objArr = <span class="string">"[object Array]"</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> origin) &#123;</span><br><span class="line">        <span class="keyword">if</span> (origin.hasOwnPrototype(prop)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (origin[prop] !== <span class="string">"null"</span> &amp;&amp; <span class="keyword">typeof</span>(origin[prop]) == <span class="string">"object"</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (objStr.call(origin[prop]) === objArr) &#123;</span><br><span class="line">                    target[prop] = []</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    target[prop] = &#123;&#125;</span><br><span class="line">                &#125;</span><br><span class="line">                deepclone(origin[prop], target[prop])</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                target[prop] = origin[prop]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>DOM 既然要对元素进行控制首先要选中元素</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生成类数组，在使用时，需要像数组一样，写第几个</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)</span><br><span class="line"><span class="comment">// NodeList,也是类数组，但是使用时是静态类型，动态更改后，元素不变</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>事件 <code>addEventListener(&#39;click&#39;, function (e) {}, false)</code><br>  而低版本IE <code>attachEvent(&#39;onclick&#39;, function () {})</code></li>
+<li>事件类型 冒泡(从子元素向父元素执行事件)和捕获(从父元素开始到子元素)，触发顺序，先捕获，后冒泡<br>  取消事件冒泡 <code>e.stopPropagation()</code> , IE <code>e.cancleBubble = true</code></li>
+<li>阻止默认事件<br>  <code>return false</code>, <code>e.preventDefaule()</code> , IE <code>returnValue = false</code></li>
+</ul>
+</li>
+</ul>
 <center>
 ----------本文结束感谢您的阅读----------
-</center> 
-
-
+</center>        
 
     
     
@@ -314,8 +360,8 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://tshycz.xyz/2019/12/27/移动端响应式/" title="移动端随笔"
-            target="_blank">http://tshycz.xyz/2019/12/27/移动端响应式/</a>
+          <a href="http://tshycz.xyz/2020/01/25/前端学习小总结js/" title="前端学习小总结js"
+            target="_blank">http://tshycz.xyz/2020/01/25/前端学习小总结js/</a>
         </li>
         
         <li>
@@ -337,11 +383,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">jacascript</a>
         		</li>
       		
 		</ul>
@@ -397,7 +439,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://tshycz.xyz/2019/12/27/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://tshycz.xyz/2020/01/25/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93js/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -412,15 +454,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/12/31/less%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          CSS 预处理语言 less
-        
-      </div>
-    </a>
   
+    <a href="/2020/01/19/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端学习小总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -445,7 +483,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端适配及手指滑动"><span class="toc-number">1.</span> <span class="toc-text">移动端适配及手指滑动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#适配方案"><span class="toc-number">1.1.</span> <span class="toc-text">适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配设置"><span class="toc-number">1.2.</span> <span class="toc-text">适配设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#viewport的功能："><span class="toc-number">1.3.</span> <span class="toc-text">viewport的功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端触摸事件-touch"><span class="toc-number">1.4.</span> <span class="toc-text">移动端触摸事件 touch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加事件"><span class="toc-number">1.5.</span> <span class="toc-text">添加事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件对象"><span class="toc-number">1.6.</span> <span class="toc-text">事件对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#滑动实现的原理"><span class="toc-number">1.7.</span> <span class="toc-text">滑动实现的原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#轻触事件-tap"><span class="toc-number">1.8.</span> <span class="toc-text">轻触事件 tap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#响应式"><span class="toc-number">1.9.</span> <span class="toc-text">响应式</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端学习-javascript-篇"><span class="toc-number">1.</span> <span class="toc-text">前端学习 javascript 篇</span></a></li></ol>
                     </div>
                 </span>
             </div>
